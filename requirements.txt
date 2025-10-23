@@ -1,0 +1,15 @@
+pandas>=1.5
+numpy>=1.24
+gensim>=4.2
+nltk>=3.8
+scikit-learn>=1.2
+matplotlib>=3.7
+seaborn>=0.12
+tqdm>=4.65
+linearmodels>=4.30
+statsmodels>=0.13
+python-dateutil
+joblib
+transformers>=4.30   # optional if you want transformer sentiment
+torch                # optional if using transformer sentiment
+vaderSentiment>=3.3  # lighter alternative
