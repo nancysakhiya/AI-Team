@@ -1,6 +1,6 @@
 # utils/sentiment.py
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from .text_preprocessor import clean_text
+from utils.text_preprocessor import clean_text
 import pandas as pd
 analyzer = SentimentIntensityAnalyzer()
 

@@ -3,7 +3,7 @@ from gensim.corpora import Dictionary
 from gensim.models.ldamodel import LdaModel
 import numpy as np
 import pandas as pd
-from .text_preprocessor import clean_text, tokenize
+from utils.text_preprocessor import clean_text, tokenize
 from tqdm import tqdm
 tqdm.pandas()
 
