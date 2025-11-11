@@ -3,6 +3,7 @@ import random
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
+import os
 
 TOPICS = ["sports","movies","politics","food","travel","tech","health","music"]
 
@@ -71,3 +72,23 @@ def gen_synthetic_users(num_users=200, start_date="2010-01-01", months=12, tweet
     tweets_df = pd.DataFrame(tweets)
     checkins_df = pd.DataFrame(checkins)
     return tweets_df, checkins_df
+
+if __name__ == "__main__":
+    # Generate and save synthetic datasets to outputs/
+    tweets_df, checkins_df = gen_synthetic_users()
+
+    # Ensure timestamps are proper ISO string for CSV consistency
+    tweets_df["timestamp"] = pd.to_datetime(tweets_df["timestamp"])
+    checkins_df["timestamp"] = pd.to_datetime(checkins_df["timestamp"])
+
+    outdir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "outputs")
+    os.makedirs(outdir, exist_ok=True)
+
+    tweets_path = os.path.join(outdir, "tweets.csv")
+    checkins_path = os.path.join(outdir, "checkins.csv")
+
+    tweets_df.to_csv(tweets_path, index=False)
+    checkins_df.to_csv(checkins_path, index=False)
+
+    print(f"Saved tweets to {tweets_path}")
+    print(f"Saved checkins to {checkins_path}")
